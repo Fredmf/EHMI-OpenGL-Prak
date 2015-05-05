@@ -145,14 +145,14 @@ GL_FALSE, // normalized?
     glm::vec3 rotation = glm::vec3(0,0,0);
     glm::vec3 scale = glm::vec3(1,1,1);
     // Rebuild the Model matrix
-    rotation.y += 0.001f;
+    rotation.y += 0.1f;
     glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
     glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
 
     for (int i = (-10); i < 11; i++) {
         for (int j = (-10); j < 11; j++) {
             
-            glm::vec3 position = glm::vec3(i,j,0);
+            glm::vec3 position = glm::vec3(i,0,j);
             glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
             Model = translationMatrix * rotationMatrix * scalingMatrix;
             
@@ -176,6 +176,10 @@ glDisableVertexAttribArray(vertexUVID);
 glDisableVertexAttribArray(vertexNormal_modelspaceID);
 
 updateScreen();
+    
+    static int frame = 0;
+    frame++;
+    std::cout << frame << std::endl;
 }
 while( 1 );
 
