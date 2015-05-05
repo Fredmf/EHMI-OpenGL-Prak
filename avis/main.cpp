@@ -49,7 +49,7 @@ GLuint vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_
 
     // Camera matrix
     glm::mat4 View = glm::lookAt(
-                                glm::vec3(10,3,9), // Camera is at (4,1,3), in World Space
+                                glm::vec3(30,10,21), // Camera is at (4,1,3), in World Space
                                 glm::vec3(0,0,0), // and looks at the origin
                                 glm::vec3(0,1,0) // Head is up (set to 0,-1,0 to look upside-down)
                            );
@@ -150,10 +150,13 @@ GL_FALSE, // normalized?
     rotation.y += 0.01f;
     glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
     //glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
-
+    
+    int ii=0;
+    int jj=0;
     for (int i = (-10); i < 11; i++) {
+        ii++;
         for (int j = (-10); j < 11; j++) {
-            
+            jj++;
             glm::vec3 position = glm::vec3(i,0,j);
             glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
             Model =  rotationMatrix * translationMatrix;// * scalingMatrix;
@@ -179,6 +182,8 @@ glDisableVertexAttribArray(vertexNormal_modelspaceID);
 
 updateScreen();
 
+    printf("ii: %i, jj: %j\n",ii,jj)
+    
 }
 while( 1 );
 
