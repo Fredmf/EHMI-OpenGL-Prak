@@ -1,5 +1,6 @@
-# Tutorial 8 basic shading
-add_executable(avis.cpp
+# avis
+add_executable(avis
+    tutorial08.cpp
 )
 target_link_libraries(avis
     common
