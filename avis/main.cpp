@@ -100,24 +100,8 @@ glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 // Use our shader
 glUseProgram(programID);
-        
-        // Rebuild the Model matrix
-        rotation.y += 0.01f;
-glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
-glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
-glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
-
-Model = translationMatrix * rotationMatrix * scalingMatrix;
-
-        // Our ModelViewProjection : multiplication of our 3 matrices
-        glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
-
-// Send our transformation to the currently bound shader,
-// in the "MVP" uniform
-glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &Model[0][0]);
-glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &View[0][0]);
-
+    
+// Lights
 glm::vec3 lightPos = glm::vec3(4,4,4);
 glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
@@ -163,6 +147,24 @@ GL_FALSE, // normalized?
 (void*)0 // array buffer offset
 );
 
+    // Rebuild the Model matrix
+    rotation.y += 0.001f;
+    glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
+    glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
+    glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
+    
+    Model = translationMatrix * rotationMatrix * scalingMatrix;
+    
+    // Our ModelViewProjection : multiplication of our 3 matrices
+    glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
+    
+    // Send our transformation to the currently bound shader,
+    // in the "MVP" uniform
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &Model[0][0]);
+    glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &View[0][0]);
+    
+    
 // Draw the triangles !
 glDrawArrays(GL_TRIANGLES, 0, vertices.size() );
 
