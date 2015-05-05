@@ -179,7 +179,7 @@ updateScreen();
     
     static int frame = 0;
     frame++;
-    std::cout << frame << std::endl;
+    printf(frame);
 }
 while( 1 );
 
