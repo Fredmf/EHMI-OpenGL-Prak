@@ -91,7 +91,6 @@ GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
 
     // Transform for Model
     glm::vec3 rotation = glm::vec3(0,0,0);
-    glm::vec3 scale = glm::vec3(1,1,1);
     
 do{
 // Clear the screen
@@ -149,7 +148,7 @@ GL_FALSE, // normalized?
     // Rebuild the Model matrix
     rotation.y += 0.01f;
     glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
-    //glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
+    
     
     int ii=0;
     int jj=0;
@@ -157,9 +156,12 @@ GL_FALSE, // normalized?
         ii++;
         for (int j = (-10); j < 11; j++) {
             jj++;
+            
+            glm::vec3 scale = glm::vec3(1,1,1);
+            glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
             glm::vec3 position = glm::vec3(i,0,j);
             glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
-            Model =  rotationMatrix * translationMatrix;// * scalingMatrix;
+            Model =  rotationMatrix * translationMatrix * scalingMatrix;
             
             // Our ModelViewProjection : multiplication of our 3 matrices
             glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
@@ -182,7 +184,7 @@ glDisableVertexAttribArray(vertexNormal_modelspaceID);
 
 updateScreen();
 
-    printf("ii: %i, jj: %j\n",ii,jj);
+    printf("ii: %i, jj: %i\n",ii,jj);
     
 }
 while( 1 );
