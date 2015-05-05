@@ -182,7 +182,7 @@ glDisableVertexAttribArray(vertexNormal_modelspaceID);
 
 updateScreen();
 
-    printf("ii: %i, jj: %j\n",ii,jj)
+    printf("ii: %i, jj: %j\n",ii,jj);
     
 }
 while( 1 );
