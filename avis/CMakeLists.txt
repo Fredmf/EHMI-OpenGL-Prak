@@ -9,7 +9,7 @@ target_link_libraries(avis
 )
 file(
 COPY
-suzanne.obj
+cube.obj
 TextureFragmentShader.glsl
 TransformVertexShader.glsl
 uvtemplate.bmp
