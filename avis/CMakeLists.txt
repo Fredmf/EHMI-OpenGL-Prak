@@ -1,6 +1,6 @@
 # avis
 add_executable(avis
-    tutorial08.cpp
+    main.cpp
 )
 target_link_libraries(avis
     common

@@ -1,0 +1,4 @@
+/Users/grin/Documents/Code/github/EHMI-OpenGL-Prak/build/avis/CMakeFiles/avis.dir
+/Users/grin/Documents/Code/github/EHMI-OpenGL-Prak/build/CMakeFiles/ALL_BUILD.dir
+/Users/grin/Documents/Code/github/EHMI-OpenGL-Prak/build/common/CMakeFiles/common.dir
+/Users/grin/Documents/Code/github/EHMI-OpenGL-Prak/build/CMakeFiles/ZERO_CHECK.dir

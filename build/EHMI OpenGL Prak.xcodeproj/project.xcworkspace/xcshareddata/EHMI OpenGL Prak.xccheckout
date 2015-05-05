@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CC2F6D3E-B9A3-434E-8298-63637DD93A47</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EHMI OpenGL Prak</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C233A1DD43D34FA51D9730AA22AE2AE56488140D</key>
+		<string>https://github.com/Fredmf/EHMI-OpenGL-Prak</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>build/EHMI OpenGL Prak.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C233A1DD43D34FA51D9730AA22AE2AE56488140D</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Fredmf/EHMI-OpenGL-Prak</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C233A1DD43D34FA51D9730AA22AE2AE56488140D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C233A1DD43D34FA51D9730AA22AE2AE56488140D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EHMI-OpenGL-Prak</string>
+		</dict>
+	</array>
+</dict>
+</plist>
