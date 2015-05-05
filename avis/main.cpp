@@ -89,6 +89,10 @@ glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals[0], G
 glUseProgram(programID);
 GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
 
+    // Transform for Model
+    glm::vec3 rotation = glm::vec3(0,0,0);
+    glm::vec3 scale = glm::vec3(1,1,1);
+    
 do{
 // Clear the screen
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -141,9 +145,7 @@ GL_FALSE, // normalized?
 0, // stride
 (void*)0 // array buffer offset
 );
-    // Transform for Model
-    glm::vec3 rotation = glm::vec3(0,0,0);
-    glm::vec3 scale = glm::vec3(1,1,1);
+    
     // Rebuild the Model matrix
     rotation.y += 0.1f;
     glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
@@ -176,10 +178,7 @@ glDisableVertexAttribArray(vertexUVID);
 glDisableVertexAttribArray(vertexNormal_modelspaceID);
 
 updateScreen();
-    
-    static int frame = 0;
-    frame++;
-    printf("%i",frame);
+
 }
 while( 1 );
 
