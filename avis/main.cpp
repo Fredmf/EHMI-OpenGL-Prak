@@ -57,11 +57,6 @@ GLuint vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_
     // Model matrix : an identity matrix (model will be at the origin)
     glm::mat4 Model = glm::mat4(1.0f);
 
-    // Transform for Model
-    glm::vec3 position = glm::vec3(0,0,0);
-    glm::vec3 rotation = glm::vec3(0,0,0);
-    glm::vec3 scale = glm::vec3(1,1,1);
-
 // Load the texture
 GLuint Texture = loadBMP_custom("uvtemplate.bmp");
 
@@ -146,27 +141,35 @@ GL_FALSE, // normalized?
 0, // stride
 (void*)0 // array buffer offset
 );
-
+    // Transform for Model
+    glm::vec3 rotation = glm::vec3(0,0,0);
+    glm::vec3 scale = glm::vec3(1,1,1);
     // Rebuild the Model matrix
     rotation.y += 0.001f;
-    glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
     glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
     glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
-    
-    Model = translationMatrix * rotationMatrix * scalingMatrix;
-    
-    // Our ModelViewProjection : multiplication of our 3 matrices
-    glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
-    
-    // Send our transformation to the currently bound shader,
-    // in the "MVP" uniform
-    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &Model[0][0]);
-    glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &View[0][0]);
-    
-    
-// Draw the triangles !
-glDrawArrays(GL_TRIANGLES, 0, vertices.size() );
+
+    for (int i = (-10); i < 11; i++) {
+        for (int j = (-10); j < 11; j++) {
+            
+            glm::vec3 position = glm::vec3(i,j,0);
+            glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
+            Model = translationMatrix * rotationMatrix * scalingMatrix;
+            
+            // Our ModelViewProjection : multiplication of our 3 matrices
+            glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
+            
+            // Send our transformation to the currently bound shader,
+            // in the "MVP" uniform
+            glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+            glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &Model[0][0]);
+            glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &View[0][0]);
+            
+            
+            // Draw the triangles !
+            glDrawArrays(GL_TRIANGLES, 0, vertices.size() );
+        }
+    }
 
 glDisableVertexAttribArray(vertexPosition_modelspaceID);
 glDisableVertexAttribArray(vertexUVID);
