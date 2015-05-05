@@ -1,8 +1,7 @@
 # Tutorial 8 basic shading
-add_executable(tutorial08_basic_shading
-    tutorial08.cpp
+add_executable(avis.cpp
 )
-target_link_libraries(tutorial08_basic_shading
+target_link_libraries(avis
     common
     ${RPi_LIBS}
     ${GL_LIBS}
@@ -13,5 +12,5 @@ suzanne.obj
 TextureFragmentShader.glsl
 TransformVertexShader.glsl
 uvtemplate.bmp
-DESTINATION ${CMAKE_BINARY_DIR}/tutorial08_basic_shading
+DESTINATION ${CMAKE_BINARY_DIR}/avis
 )

@@ -1,3 +1,9 @@
+OpenGL EGL Audio Visualizer
+
+Target: Raspberry Pi 2 B
+
+original readme:
+
 openGLES 2.0 tutorial for Raspberry Pi
 
 Install necessary tools:
