@@ -149,14 +149,14 @@ GL_FALSE, // normalized?
     // Rebuild the Model matrix
     rotation.y += 0.1f;
     glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
-    glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
+    //glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
 
     for (int i = (-10); i < 11; i++) {
         for (int j = (-10); j < 11; j++) {
             
             glm::vec3 position = glm::vec3(i,0,j);
             glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
-            Model = translationMatrix * rotationMatrix * scalingMatrix;
+            Model =  rotationMatrix * translationMatrix;// * scalingMatrix;
             
             // Our ModelViewProjection : multiplication of our 3 matrices
             glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
