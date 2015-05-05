@@ -1,6 +1,6 @@
 # CMake entry point
 cmake_minimum_required (VERSION 2.8)
-project ("openGLES 2.0 for Raspberry Pi tutorials")
+project ("EHMI OpenGL Prak")
 
 SET(COMPILE_DEFINITIONS -Werror)
 
