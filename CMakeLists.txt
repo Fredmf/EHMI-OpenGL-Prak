@@ -49,8 +49,8 @@ set(ILC_LIBS
 add_subdirectory(common)
 
 # subdirectories
-add_subdirectory(encode)
-add_subdirectory(encode_main)
-add_subdirectory(encode_OGL)
-add_subdirectory(playground)
-add_subdirectory(src)
+#add_subdirectory(encode)
+#add_subdirectory(encode_main)
+#add_subdirectory(encode_OGL)
+#add_subdirectory(playground)
+add_subdirectory(avis)

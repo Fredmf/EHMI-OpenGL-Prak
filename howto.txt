@@ -1,0 +1,5 @@
+#### INIT ####
+cd;git clone https://github.com/Fredmf/EHMI-OpenGL-Prak;cd EHMI-OpenGL-Prak/build;cmake ..
+
+#### UPDATE ####
+cd;cd EHMI-OpenGL-Prak;git pull;cd build;cmake ..
