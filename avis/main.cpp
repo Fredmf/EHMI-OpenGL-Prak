@@ -179,7 +179,7 @@ updateScreen();
     
     static int frame = 0;
     frame++;
-    printf(frame);
+    printf("%i",frame);
 }
 while( 1 );
 
