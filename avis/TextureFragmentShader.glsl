@@ -15,7 +15,7 @@ void main(){
 // Light emission properties
 // You probably want to put them as uniforms
 vec3 LightColor = vec3(0.87,0.0,0.28);
-float LightPower = 50.0;
+float LightPower = 250.0;
 
 // Material properties
 vec3 MaterialDiffuseColor = texture2D( myTextureSampler, UV ).rgb;
