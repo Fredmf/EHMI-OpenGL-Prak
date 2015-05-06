@@ -105,8 +105,8 @@ glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 glUseProgram(programID);
     
 // Lights
-glm::vec3 lightPos = glm::vec3(sinf(waveseed),4,cosf(waveseed));
-    printf("sin: &f,cos: %f\n",sinf(waveseed),cosf(waveseed));
+glm::vec3 lightPos = glm::vec3(sinf(waveseed)*10,sinf(waveseed)*10,cosf(waveseed)*10);
+    printf("sin: %f,cos: %f\n",sinf(waveseed),cosf(waveseed));
 glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
 // Bind our texture in Texture Unit 0
