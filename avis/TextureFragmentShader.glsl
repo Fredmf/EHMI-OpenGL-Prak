@@ -47,7 +47,7 @@ vec3 R = reflect(-l,n);
 float cosAlpha = clamp( dot( E,R ), 0.0, 1.0 );
 
 vec3 amb = MaterialAmbientColor;
-vec3 dif = MaterialDiffuseColor * LightColor * LightPower * cosTheta / (distance*distance);
+vec3 dif = MaterialDiffuseColor * LightColor * LightPower * cosTheta / (distance*distance) + 0.2;
 vec3 spec = MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha, 5.0) / (distance*distance);
 
 gl_FragColor.a = 1.0;

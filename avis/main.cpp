@@ -20,7 +20,7 @@ InitGraphics();
     printf("Screen started\n");
 
 // Dark blue background
- glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
+ glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 // Enable depth test
 glEnable(GL_DEPTH_TEST);
@@ -107,7 +107,7 @@ glUseProgram(programID);
     
 // Lights
 glm::vec3 lightPos = glm::vec3(sinf(waveseed)*10,sinf(waveseed)*10,cosf(waveseed)*10);
-    printf("sin: %f,cos: %f\n",sinf(waveseed),cosf(waveseed));
+    //printf("sin: %f,cos: %f\n",sinf(waveseed),cosf(waveseed));
 glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
 // Bind our texture in Texture Unit 0
