@@ -20,7 +20,7 @@ InitGraphics();
     printf("Screen started\n");
 
 // Dark blue background
-// glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
+ glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
 
 // Enable depth test
 glEnable(GL_DEPTH_TEST);
@@ -47,13 +47,6 @@ GLuint vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_
     glm::mat4 Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
     // Or, for an ortho camera :
     //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
-
-    // Camera matrix
-    glm::mat4 View = glm::lookAt(
-                                glm::vec3(30,10,21), // Camera is at (4,1,3), in World Space
-                                glm::vec3(0,0,0), // and looks at the origin
-                                glm::vec3(0,1,0) // Head is up (set to 0,-1,0 to look upside-down)
-                           );
     
     // Model matrix : an identity matrix (model will be at the origin)
     glm::mat4 Model = glm::mat4(1.0f);
@@ -98,6 +91,14 @@ GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
 do{
     static float waveseed = 0.0;
     waveseed+=0.01;
+    
+    // Camera matrix
+    glm::mat4 View = glm::lookAt(
+                                 glm::vec3(30,sinf(waveseed)*10,21), // Camera is at (4,1,3), in World Space
+                                 glm::vec3(0,0,0), // and looks at the origin
+                                 glm::vec3(0,1,0) // Head is up (set to 0,-1,0 to look upside-down)
+                                 );
+    
 // Clear the screen
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
