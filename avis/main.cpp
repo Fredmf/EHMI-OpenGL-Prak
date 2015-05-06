@@ -8,6 +8,7 @@ using namespace glm;
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
+#include <cmath>
 #include "../common/startScreen.h"
 #include "../common/LoadShaders.h"
 #include "../common/texture.h"
@@ -95,6 +96,8 @@ GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
     srand (1337);
     
 do{
+    static float waveseed = 0.0;
+    waveseed+=0.01;
 // Clear the screen
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -102,7 +105,8 @@ glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 glUseProgram(programID);
     
 // Lights
-glm::vec3 lightPos = glm::vec3(4,4,4);
+glm::vec3 lightPos = glm::vec3(sinf(waveseed),4,cosf(waveseed));
+    printf("sin: &f,cos: %f\n",sinf(waveseed),cosf(waveseed));
 glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
 // Bind our texture in Texture Unit 0
