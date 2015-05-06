@@ -92,6 +92,8 @@ GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
     // Transform for Model
     glm::vec3 rotation = glm::vec3(0,0,0);
     
+    srand (1337);
+    
 do{
 // Clear the screen
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -150,14 +152,14 @@ GL_FALSE, // normalized?
     glm::mat4 rotationMatrix	= glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
     
     
-    int ii=0;
-    int jj=0;
+    //int ii=0;
+    //int jj=0;
     for (int i = (-10); i < 11; i++) {
-        ii++;
+        //ii++;
         for (int j = (-10); j < 11; j++) {
-            jj++;
+            //jj++;
             
-            glm::vec3 scale = glm::vec3(1,1,1);
+            glm::vec3 scale = glm::vec3(1,(rand() % 10 + 1),1);
             glm::mat4 scalingMatrix	= glm::scale(glm::mat4(1.0f), scale);
             glm::vec3 position = glm::vec3(i,0,j);
             glm::mat4 translationMatrix	= glm::translate(glm::mat4(1.0f), position);
@@ -184,7 +186,7 @@ glDisableVertexAttribArray(vertexNormal_modelspaceID);
 
 updateScreen();
 
-    printf("ii: %i, jj: %i\n",ii,jj);
+    //printf("ii: %i, jj: %i\n",ii,jj);
     
 }
 while( 1 );
