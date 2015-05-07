@@ -1,8 +1,8 @@
 #### INIT ####
-cd;git clone https://github.com/Fredmf/EHMI-OpenGL-Prak;cd EHMI-OpenGL-Prak/build;cmake ..;make
+cd;git clone https://github.com/Fredmf/EHMI-OpenGL-Prak;cd EHMI-OpenGL-Prak;mkdir build;cd build;cmake ..;make;cd avis;./avis
 
 #### UPDATE ####
-cd;cd EHMI-OpenGL-Prak;git pull;cd build;cmake ..;make
+cd;cd EHMI-OpenGL-Prak;git pull;cd build;cmake ..;make;cd avis;./avis
 
 #### CLEAR ALL ####
 cd;rm -r EHMI-OpenGL-Prak
