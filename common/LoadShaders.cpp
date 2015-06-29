@@ -23,6 +23,7 @@ GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path
         GSimpleVS.LoadVertexShader(vertex_file_path); //"simplevertshader.glsl");
         GSimpleFS.LoadFragmentShader(fragment_file_path); //"simplefragshader.glsl");
         GSimpleProg.Create(&GSimpleVS,&GSimpleFS);
+
         check();
         glUseProgram(GSimpleProg.GetId());
         check();
@@ -31,6 +32,7 @@ GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path
 
 bool GfxShader::LoadFragmentShader(const char* filename)
 {
+        
         //cheeky bit of code to read the whole file into memory
         assert(!Src);
         FILE* f = fopen(filename, "rb");
@@ -48,6 +50,15 @@ bool GfxShader::LoadFragmentShader(const char* filename)
         Id = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(Id, 1, (const GLchar**)&Src, 0);
         glCompileShader(Id);
+
+        // if (glGetError() != 0)
+        {
+                char errMsg[1024];
+                GLsizei length = 0;
+                glGetShaderInfoLog(Id, 1024, &length, errMsg);
+                printf("glCompileShader (fragment) log: %s\n", errMsg);        
+        }
+
         check();
 
         //compilation check
@@ -76,6 +87,14 @@ bool GfxShader::LoadVertexShader(const char* filename)
         Id = glCreateShader(GlShaderType);
         glShaderSource(Id, 1, (const GLchar**)&Src, 0);
         glCompileShader(Id);
+
+        {
+                char errMsg[1024];
+                GLsizei length = 0;
+                glGetShaderInfoLog(Id, 1024, &length, errMsg);
+                printf("glCompileShader (vertex) log: %s\n", errMsg);        
+        }
+
         check();
 
         return true;
@@ -89,6 +108,14 @@ bool GfxProgram::Create(GfxShader* vertex_shader, GfxShader* fragment_shader)
         glAttachShader(Id, VertexShader->GetId());
         glAttachShader(Id, FragmentShader->GetId());
         glLinkProgram(Id);
+
+        {
+                char errMsg[1024];
+                GLsizei length = 0;
+                glGetProgramInfoLog(Id, 1024, &length, errMsg);
+                printf("glGetProgramInfoLog log: %s\n", errMsg);        
+        }
+
         check();
 
         return true;    

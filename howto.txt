@@ -1,3 +1,10 @@
+############## SFTP METHOD ##############
+
+#### REBUILD ####
+cd;cd EHMI-OpenGL-Prak/build;cmake ..;make;cd avis;./avis
+
+############## GITHUB METHOD ##############
+
 #### INIT ####
 cd;git clone https://github.com/Fredmf/EHMI-OpenGL-Prak;cd EHMI-OpenGL-Prak;mkdir build;cd build;cmake ..;make;cd avis;./avis
 

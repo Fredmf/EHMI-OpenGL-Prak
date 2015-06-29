@@ -77,7 +77,8 @@ float cosAlpha_b = clamp( dot( E,R_b ), 0.0, 1.0 );
 float cosAlpha_c = clamp( dot( E,R_c ), 0.0, 1.0 );
 float cosAlpha_d = clamp( dot( E,R_d ), 0.0, 1.0 );
 
-vec3 amb = MaterialAmbientColor;
+//vec3 amb = MaterialAmbientColor;
+vec3 amb = vec3( 0.1, 0.1, 0.3 );
 vec3 dif_a = MaterialDiffuseColor * LightColor_a * LightPower_a * cosTheta_a / (distance_a*distance_a);
 vec3 dif_b = MaterialDiffuseColor * LightColor_b * LightPower_b * cosTheta_b / (distance_b*distance_b);
 vec3 dif_c = MaterialDiffuseColor * LightColor_c * LightPower_c * cosTheta_c / (distance_c*distance_c);
@@ -88,10 +89,10 @@ vec3 spec_c = MaterialSpecularColor * LightColor_c * LightPower_c * pow(cosAlpha
 vec3 spec_d = MaterialSpecularColor * LightColor_d * LightPower_d * pow(cosAlpha_d, 5.0) / (distance_d*distance_d);
 
 vec3 dif = dif_a + dif_b + dif_c + dif_d;
-//vec3 spec = spec0 + spec1 + spec2 + spec3;
+vec3 spec = spec_a + spec_b + spec_c + spec_d;
 
-gl_FragColor.a = 0.5;
-gl_FragColor.rgb = amb + dif + spec_a;
+gl_FragColor.a = 0.8;
+gl_FragColor.rgb = amb * 2.0 + dif + spec;
 
 /* gl_FragColor.rgb =
 // Ambient : simulates indirect lighting

@@ -25,6 +25,12 @@ set(RPi_LIBS
     libvcos.so
 )
 
+set(AU_LIBS
+    pulse
+    pulse-simple
+    sndfile
+)
+
 set(CAM_LIBS
 # camera
     libmmal_core.so
