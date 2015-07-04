@@ -1,3 +1,5 @@
+stuff for university
+
 OpenGL EGL Audio Visualizer
 
 Target: Raspberry Pi 2 B
